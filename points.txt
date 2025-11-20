@@ -1,0 +1,1 @@
+Threat status is measured as  intelligence^2 + Height - Weight/height
