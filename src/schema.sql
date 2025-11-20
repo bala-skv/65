@@ -8,7 +8,7 @@ CREATE TABLE INTRUDERS (
     Gender CHAR(1) NOT NULL CHECK (Gender IN ('M', 'F', 'O')),
     Height INT NOT NULL CHECK(Height between 1 and 300),
     Weight INT NOT NULL CHECK(Weight>0),
-    Intelligence INT NOT NULL CHECK(Intellegince between 50 and 170),
+    Intelligence INT NOT NULL CHECK(Intelligence between 50 and 170),
     Time_Of_Entry TIME NOT NULL,
     Location_Id INT NOT NULL
 );
@@ -80,8 +80,7 @@ CREATE TABLE SUSPIOUS_ACTIVITIES (
     Cell_Id INT NOT NULL,
     FOREIGN KEY (Intruder_Id) REFERENCES INTRUDERS(User_Id) ON UPDATE CASCADE ON DELETE CASCADE,
     FOREIGN KEY (Creature_Id) REFERENCES INDIVIDUAL_FOODIMAL_CREATURES(Creature_Id) ON UPDATE CASCADE ON DELETE CASCADE,
-    FOREIGN KEY (Colony_Id) REFERENCES LIVECORP_COLONY(Colony_Id) ON UPDATE CASCADE ON DELETE CASCADE,
-    FOREIGN KEY (Cell_Id) REFERENCES LIVECORP_CELLS(Cell_Id) ON UPDATE CASCADE ON DELETE CASCADE,
+    FOREIGN KEY (Cell_Id, Colony_Id) REFERENCES LIVECORP_CELLS(Cell_Id, Colony_Id) ON UPDATE CASCADE ON DELETE CASCADE,
     PRIMARY KEY (Intruder_Id, Creature_Id, Colony_Id, Cell_Id)
 );
 
@@ -109,11 +108,11 @@ CREATE TABLE CREATES(
 );
 
 CREATE TABLE DESCRIPTIONS(
-    Decription VARCHAR(255) NOT NULL, -- why get it confused with DESC in sql
+    Description VARCHAR(255) NOT NULL, -- why get it confused with DESC in sql
     Item_Owner_Id INT NOT NULL,
     Item_Name VARCHAR(30) NOT NULL,
     FOREIGN KEY (Item_Owner_Id, Item_Name) REFERENCES INVENTIONS(Item_Owner, Item_Name) ON UPDATE CASCADE ON DELETE CASCADE,
-    PRIMARY KEY (Item_Owner_Id, Item_Name, `Desc`)
+    PRIMARY KEY (Item_Owner_Id, Item_Name, Description)
 );
 
 CREATE TABLE INVENTOR(
