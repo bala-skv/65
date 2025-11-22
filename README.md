@@ -1,5 +1,7 @@
 # Cloudy With a Chance of Meatballs Database CLI
 
+## **Video Link:** https://drive.google.com/file/d/1WKVxFjf6I7ei_Hda66xTHsM7vdqtPGEd/view?usp=sharing
+
 A command-line interface application for managing a the Cloudy with a Chance of Meatballs database with intruders, foodimals, regions, and inventions.
 
 - **Team Number:** 65
